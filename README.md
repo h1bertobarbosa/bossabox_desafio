@@ -13,8 +13,7 @@
 - Docker
 
 ### Commands
-#### `npx sequelize db:migrate`
-
+npm run typeorm migrate:run
 ### Scripts
 
 #### `npm run start:dev`

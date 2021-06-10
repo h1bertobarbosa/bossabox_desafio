@@ -32,7 +32,7 @@ export class createToolsTable1615811606486 implements MigrationInterface {
           },
           {
             name: 'tags',
-            type: 'text',
+            type: 'jsonb',
             isNullable: true,
           },
           {

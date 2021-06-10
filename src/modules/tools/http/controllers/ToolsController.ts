@@ -9,13 +9,13 @@ export default class ToolsController {
   public async store(request: Request, response: Response): Promise<Response> {
     const createService = new CreateToolService(new ToolTypeormRepository());
 
-    const { title, link, description, tags } = request.body;
+    const { title, link, description, tags: related } = request.body;
 
     const tool = await createService.execute({
       title,
       link,
       description,
-      tags,
+      tags: { related },
       user_id: request.user.id,
     });
 
