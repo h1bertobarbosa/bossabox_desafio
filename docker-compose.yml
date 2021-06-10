@@ -1,0 +1,22 @@
+version: "3.1"
+services:
+  postgres:
+    image: postgres:12.6
+    container_name: bossabox_postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bossabox
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  pg-data:
