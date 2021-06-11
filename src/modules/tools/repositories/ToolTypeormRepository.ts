@@ -30,7 +30,7 @@ export default class ToolTypeormRepository implements ToolRepository {
     builder.where('tools.user_id = :userId', { userId: user_id });
 
     if (tag) {
-      builder.andWhere('tools.tags LIKE :tag', { tag: `%${tag}%` });
+      builder.andWhere(`(tags->'related')::jsonb ? '${tag}'`);
     }
 
     return builder.getMany();
